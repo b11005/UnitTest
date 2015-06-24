@@ -59,7 +59,7 @@ public class isOpenNow {
 	    if (dayOfWeek == close){
 	    	System.out.println("Close now");
 	    	return false;
-	    }else if(ampm=="AM" && chour<hour){
+	    }else if(ampm=="AM" && hour<chour){
 	    	System.out.println("Open now");
 	    	return true;
 	    }
