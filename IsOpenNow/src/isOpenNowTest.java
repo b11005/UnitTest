@@ -11,14 +11,10 @@ public class isOpenNowTest {
         @Test
         //public void test() {                                                  
                 public void testIsOpenNow() {
-        			//Method method = isOpenNow.class.getDeclaredMethod(isOpenNow, );
-        			//method.setAccessible(true);
-        			//int actual = int method.invoke(, args);
-        			//assertFalse(isOpenNow.IsOpenNow());
-        			//int dayOfWeek, int hour, int close, int ohour, int omin, int chour, int cmin
-        			assertTrue(isOpenNow.IsOpenNow(Calendar.MONDAY, 8, 1, 7, 20));
-                    assertFalse(isOpenNow.IsOpenNow(Calendar.MONDAY, 9, 2, 8, 12));
-                    assertFalse(isOpenNow.IsOpenNow(Calendar.SUNDAY, 9, 1, 3, 18));
+        			assertTrue(isOpenNow.IsOpenNow(Calendar.MONDAY, 8, 1, 7, 20, "PM"));
+                    assertFalse(isOpenNow.IsOpenNow(Calendar.MONDAY, 9, 2, 8, 12, "AM"));//定休日と曜日が一緒
+                    assertFalse(isOpenNow.IsOpenNow(Calendar.SUNDAY, 9, 1, 3, 18, "AM"));//定休日と曜日が一緒
+                    assertTrue(isOpenNow.IsOpenNow(Calendar.MONDAY, 0, 1, 3, 2, "AM"));
                     
                     
 
