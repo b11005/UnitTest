@@ -13,17 +13,21 @@ public class isOpenNow {
                 BufferedReader br 
                     = new BufferedReader(new FileReader(file));
 
-                String str, name, business;
+                String str, name, tmp,close, ohour,omin,chour,cmin;
 				String[] str1, temp;
                 while((str = br.readLine()) != null){
                     System.out.println(str);
                     str1=str.split("\t");
-                    name=str1[0];
-                    System.out.println("店名: "+ name);
-                    business=str1[1];
-                    System.out.println("営業時間" + business);
-                    temp=business.split("[~ :]");
-                    System.out.println(temp[1]);
+                    name=str1[0];//店名
+                    close=str1[1];//定休日
+                    tmp=str1[2];
+                    temp=tmp.split("[: ~]");
+                    ohour=temp[0];//開店時間
+                    omin=temp[1];//開店　分
+                    chour=temp[2];//閉店時間　
+                    cmin=temp[3];//閉店　分
+                    //System.out.println(temp[1]);
+                    
                 }
 
                 br.close();
@@ -47,7 +51,7 @@ public class isOpenNow {
         return false;
     }
 
-	/*public static boolean isOpenNow(int dayOfWeek, int hour) {
+	public static boolean isOpenNow(int dayOfWeek, int hour) {
 	    if (dayOfWeek == Calendar.SUNDAY ||
 	        dayOfWeek == Calendar.SATURDAY)
 	      return false;
@@ -59,7 +63,7 @@ public class isOpenNow {
 	    int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 	    int hour = calendar.get(Calendar.HOUR_OF_DAY);
 	    return isOpenNow(dayOfWeek, hour);
-	  }*/
+	  }
 }
 
 
