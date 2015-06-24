@@ -54,20 +54,21 @@ public class isOpenNow {
         return false;
     }
 
-	public static boolean isOpenNow(int dayOfWeek, int hour, int close, int ohour, int omin, int chour, int cmin) {
+	public static boolean IsOpenNow(int dayOfWeek, int hour, int close, int ohour, int chour) {
 	    if (dayOfWeek == close){
-	    	System.out.println("False");
+	    	System.out.println("Close now");
 	    	return false;
 	    }
-	    System.out.println("True");
-	    return 9 <= ohour && chour < 17;
-	  }
+	    System.out.println("Open now");
+	    return ohour <= hour && hour < chour;
+	  }//int close, int ohour, int omin, int chour, int cmin
+	//int dayOfWeek, int hour, int close, int ohour, int chour
 	  
 	  public static boolean getDate(int close, int ohour, int omin, int chour, int cmin) {
 	    Calendar calendar = Calendar.getInstance();
 	    int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 	    int hour = calendar.get(Calendar.HOUR_OF_DAY);
-	    return isOpenNow(dayOfWeek, hour,close, ohour, omin,  chour, cmin);
+	    return IsOpenNow(dayOfWeek, hour,close, ohour, chour);
 	  }
 }
 
